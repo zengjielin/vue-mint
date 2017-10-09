@@ -1,0 +1,160 @@
+/*
+    ui 公用布局
+*/
+
+@import './public.scss';
+
+.ui-logo{
+    height: 2rem;
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// bg color
+.ui-bg-gradient{
+    background: -webkit-linear-gradient(left, #ff7005, #ff8932);
+    color: white;
+}
+.ui-bg-orange{
+    background-color: #ff6c00;
+}
+
+
+// 价格符号
+.ui-rmb {
+    &:before {
+        content: '¥';
+        padding-right: .2rem;
+    }
+}
+
+.ui-content {
+    padding: 0 .5rem;
+    margin: .5rem 0; // background-color:white;
+}
+
+//卡片样式
+.ui-card {
+    margin: .5rem;
+    padding: .5rem;
+    box-shadow: 0 .0625rem .375rem rgba(0, 0, 0, .06), 0 .0625rem .25rem rgba(0, 0, 0, .06);
+    background:#fff;
+    border-radius:3px;
+}
+
+
+// 撑满屏幕并居中的按钮
+.ui-button-large {
+    width: 90%;
+    height: 2.2rem;
+    margin: 0 auto;
+    display: block;
+    border-radius: .2rem;
+}
+
+.ui-button-text{
+    color: cornflowerblue;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    &::after{
+        background: white;
+    }
+}
+
+.ui-button-circle{
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    height: auto;
+    padding: .3rem 1.8rem;
+    font-size: .8rem;
+    background-color: white;
+    &.orange{
+        border-color: $ui-color-orange;
+        color: $ui-color-orange;
+    }
+    &.blue{
+        border-color: $ui-color-blue;
+        color: $ui-color-blue;
+    }
+    &.red{
+        border-color: $ui-color-red;
+        color: $ui-color-red;
+    }
+}
+
+.ui-button-radius{
+    border-radius: 25px;
+}
+
+.ui-full {
+    // position: fixed !important; //移动端fixed支持不好, 慎用!!!
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+
+// 分割线
+.ui-dividing{
+    display: block;
+    position: relative;
+    height: 1px;
+    background: rgba(0, 0, 0, .2);
+    text-align: center;
+    margin: 1.5rem auto;
+    >span{
+        color: #999;
+        background: white;
+        padding: 0 1rem;
+        font-size: .7rem;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 50%;
+        white-space: nowrap;
+        transform: translate3d(-50%,-50%,0);
+    }
+}
+
+// 文本限制行数
+.ui-clamp-1{
+    //单独写一个是为了编辑器能提示ui-clamp
+    @include text-clamp(1)
+}
+@for $i from 2 through 5 {
+    .ui-clamp-#{$i}{
+        @include text-clamp($i);
+    }
+}
+
+.ui-border{
+    border: $ui-border;
+}
+.ui-border-radius-0{
+    border-radius: 0;
+}
+.ui-border-top{
+    border-top: $ui-border;
+}
+.ui-border-bottom{
+    border-bottom: $ui-border;
+}
+.ui-border-left{
+    border-left: $ui-border;
+}
+.ui-border-right{
+    border-right: $ui-border;
+}
+.ui-circle{
+    border-radius: 50%;
+}
+

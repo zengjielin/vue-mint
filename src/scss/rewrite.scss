@@ -1,0 +1,192 @@
+@import './public.scss';
+// vue-awesome
+.fa-icon{
+    width:auto;
+    height:1em; //设置自动高度
+    &.text{ // 解决与文本混合
+        transform:translateY(0.1em); //垂直居中问题
+        margin-right:.2em;
+    }
+}
+
+//覆盖mint样式
+.mint-indicator{
+    // 太鸡巴坑了,loading的index居然不设置,垃圾组件库
+    >*{
+        z-index: 99999;
+    }
+}
+
+// header标题因为文字被切断底部
+.mint-header-title{
+    line-height: normal;
+    margin: 0;
+}
+.mint-header{
+    box-shadow: 1px 0 3px rgba(0, 0, 0, .2);
+    font-size: .9rem;
+    z-index: 3000;
+    background-color:rgba($ui-color-orange, .9);
+    color: white;
+
+    // 背景色
+    &.ui-bg-white{
+        background-color:rgba(white, .8);
+        color: #555;
+    }
+}
+.mint-header-button{
+    display: flex;
+    &.is-right{
+        justify-content: flex-end;
+    }
+}
+
+.mint-navbar{
+    margin-bottom:.2rem;
+    box-shadow:0 2px 3px rgba(0, 0, 0, .09);
+    .mint-tab-item{
+        position: relative;
+        &.is-selected{
+            // margin-bottom:-1px;
+            border-bottom: none !important;
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate3d(-50%,-100%,0);
+                display: block;
+                width: 2rem;
+                height: 2px;
+                background-color: $ui-color-orange;
+            }
+        }
+    }
+}
+
+.mint-tabbar{
+    background-color:#fff;
+    color:#999;
+}
+
+.mint-tabbar > .mint-tab-item.is-selected{
+    background-color:transparent;
+    color:$ui-color-orange;
+}
+
+.mint-navbar .mint-tab-item.is-selected{
+    border-bottom:3px solid $ui-color-orange;
+    color:$ui-color-orange;
+}
+.mint-button--primary{
+    color:#fff;
+    background-color:$ui-color-orange;
+}
+
+.mint-navbar{
+    .mint-tab-item-label{
+        font-size: .8rem;
+    }
+}
+
+
+// mt-field 表单样式调整
+.mint-cell{
+    &.is-textarea{
+        >.mint-cell-wrapper{
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+}
+
+// 评论样式
+.comment-box{
+    font-size:.8rem;
+    border-bottom:1px solid #ddd;
+    margin-bottom:1rem;
+    padding-bottom:.5rem;
+    line-height:1.2rem;
+    &:last-child{
+        border:none;
+        margin-bottom:0;
+        padding-bottom:0;
+    }
+    .avatar{
+        width:3rem;
+        height:3rem;
+        border-radius:50%;
+        margin-right:1rem;
+        background-size:100% 100%;
+    }
+    .comment-box-name{
+        font-size:.8rem;
+        padding-bottom:.5rem;
+        color:#ccc;
+    }
+    .comment-box-data{
+        padding:.4rem 0;
+        font-size:.6rem;
+        color:#ccc;
+    }
+    .comment-box-reply{
+        padding:.3rem;
+        margin:.5rem 0;
+        font-size:.8rem;
+        background:rgba(0, 0, 0, .07);
+        color:rgba(0, 0, 0, .7);
+        > span{
+            color:#FF4949;
+        }
+        > span::before{
+            content:'[';
+        }
+        > span::after{
+            content:' 回复] : ';
+        }
+    }
+    .comment-textarea{
+        border:1px solid rgba(0, 0, 0, .2);
+        border-radius:5px;
+        margin-bottom:1rem;
+        height:5rem;
+    }
+}
+
+
+.mint-field-core{
+    // 修正安卓端 input背景是一块灰色区域
+    background-color: transparent;
+}
+
+// 修正ios 日期input点击区域太小
+input[type=date].mint-field-core{
+    padding: .4rem 0;
+}
+
+// banner 分页器
+.mint-swipe-indicator{
+    &.is-active{
+        opacity: 1;
+        background-color: $ui-color-orange;
+    }
+}
+
+.swipe-item{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    >.swipe-title{
+        @include text-clamp(1);
+        background-color: rgba(black, .5);
+        color: white;
+        font-size: .8rem;
+        margin: 0;
+        padding: .5rem;
+        width: 100%;
+    }
+}

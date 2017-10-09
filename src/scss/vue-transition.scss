@@ -1,0 +1,40 @@
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+
+// 左右
+.slide-row-enter-active {
+  transition: all .3s ease;
+}
+.slide-row-leave-active {
+  transition: all .3s ease;
+  transform: translate3d(0,0,0);
+}
+.slide-row-enter,.slide-row-leave-active {
+  transform: translate3d(99vw,0,0);
+  // 偏移的宽度设置成100%或100vw会导致路由页面的mt-navbar初始z-index出现错误
+}
+
+
+// 上下
+.slide-col-enter-active {
+  transition: all .3s ease;
+}
+.slide-col-leave-active {
+  transition: all .3s ease;
+}
+.slide-col-enter,.slide-col-leave-active {
+  transform: translateY(-100%);
+}
+
+// fade
+.fade-enter-active {
+  transition: all .3s ease;
+}
+.fade-leave-active {
+  transition: all .3s ease;
+  opacity: 0;
+}
+.fade-enter,.slide-col-leave-active {
+  opacity: 1;
+}
+
