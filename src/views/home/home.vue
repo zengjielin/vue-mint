@@ -15,7 +15,7 @@
 <template>
     <ui-main class="scoped-home">
         <div class="bg-grey text-center p05">
-            Demo list
+            vue + mint 组件
         </div>
         <mt-cell title="图片" is-link to="/img">
             <icon name="file-image-o" slot="icon"></icon>
