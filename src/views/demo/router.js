@@ -19,4 +19,19 @@ export default [
         name: '选择器',
         component: require('@/views/demo/select'),
     },
+    {
+        path: '/page',
+        name: '子页面',
+        component: require('@/views/demo/page'),
+    },
+    {
+        path: '/loading',
+        name: '区域加载',
+        component: require('@/views/demo/loading'),
+    },
+    {
+        path: '/checkbox',
+        name: '多选框',
+        component: require('@/views/demo/checkbox'),
+    },
 ]

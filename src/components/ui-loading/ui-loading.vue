@@ -8,6 +8,10 @@
         width: 100%;
         color: rgba(black,.3);
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .ui-loading-title{
         font-size: .8rem;
