@@ -6,6 +6,10 @@
 
         <div class="p05">
             <ui-checkbox v-model="checked" name="inputName" label="我已阅读条款协议"></ui-checkbox>
+
+            <br>
+
+            是否已同意:{{ checked }}
         </div>
     </ui-main>
 </template>
@@ -13,7 +17,7 @@
     export default {
         data(){
             return {
-                checked:''
+                checked:false
             }
         },
     }
