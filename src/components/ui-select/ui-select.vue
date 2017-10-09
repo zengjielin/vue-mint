@@ -12,6 +12,7 @@
             display: flex;
             align-items: center;
             z-index: 0;
+            font-size: .8rem;
         }
         .box{
             height: $height;
@@ -40,7 +41,8 @@
                 <slot></slot>
             </select>
             <div class="view">
-                <span>{{viewString || placeholder}}</span>
+                <span v-if="viewString">{{viewString}}</span>
+                <span v-else class="f-color-grey">{{placeholder}}</span>
                 <icon name="angle-right" class="ml1 mr02 f-color-grey"></icon>
             </div>
         </div>
@@ -52,13 +54,9 @@
         props:{
             value: {},
             label:String,
-            labelKey: {
-                type:String,
-                default:'name'
-            },
             valueKey: {
                 type:String,
-                default:'value'
+                default:'id'
             },
             change:Function,
             placeholder:String
@@ -67,36 +65,35 @@
             return {
                 selected:'',
                 viewString:'',
-                option:[]
             }
         },
         mounted(){
             let $select = this.$refs['select']
             let $options = $select.children
 
-            // 初始回显
-            $options.forEach((item) => {
-                if (item.value == this.value) {
-                    this.viewString = item.text || item.value
-                    return
-                }
-            })
+            if (this.value) {
+                // 初始回显
+                $options.forEach((item) => {
+                    if (item.value && item.value == this.value) {
+                        this.viewString = item.text || item.value
+                        return
+                    }
+                })
+            }
             
         },
         methods:{
             onChange(e){
                 let selectedOptions = e.target.selectedOptions
-                let value = selectedOptions[0].value
+                let value = selectedOptions[0][this.valueKey]
                 let text = selectedOptions[0].text
                 this.viewString = text
 
-                // 以下是两种方法获取当前选中的值.
+                // 修改v-model
+                this.$emit('input',value)
 
                 // change回调
                 this.change && this.change(value)
-
-                // 修改v-model
-                this.$emit('input',value)
             }
         },
     }

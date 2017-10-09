@@ -14,4 +14,9 @@ export default [
         name: '空列表',
         component: require('@/views/demo/empty'),
     },
+    {
+        path: '/select',
+        name: '选择器',
+        component: require('@/views/demo/select'),
+    },
 ]

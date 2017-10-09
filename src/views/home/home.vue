@@ -14,6 +14,9 @@
 </style>
 <template>
     <ui-main class="scoped-home">
+        <div class="bg-grey text-center p05">
+            Demo list
+        </div>
         <mt-cell title="图片" is-link to="/img">
             <icon name="file-image-o" slot="icon"></icon>
         </mt-cell>
@@ -22,6 +25,9 @@
         </mt-cell>
         <mt-cell title="空列表" is-link to="/empty">
             <icon name="square-o" slot="icon"></icon>
+        </mt-cell>
+        <mt-cell title="选择器" is-link to="/select">
+            <icon name="cutlery" slot="icon"></icon>
         </mt-cell>
     </ui-main>
 </template>
